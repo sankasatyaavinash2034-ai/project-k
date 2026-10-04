@@ -40,15 +40,6 @@ export function Header({
           {theme === 'dark' ? 'LIGHT MODE' : 'DARK MODE'}
         </button>
 
-        <button
-          type="button"
-          className="btn-icon-simple"
-          onClick={onToggleSound}
-          title={soundMuted ? "Unmute sound" : "Mute sound"}
-          aria-label="Toggle Sound"
-        >
-          {soundMuted ? "MUTED" : "SFX"}
-        </button>
 
         <button
           type="button"

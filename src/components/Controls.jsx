@@ -78,13 +78,6 @@ export function Controls({
           SHUFFLE
         </button>
 
-        <button
-          type="button"
-          className="btn-game btn-dark"
-          onClick={onOpenPreview}
-        >
-          PREVIEW
-        </button>
 
         <button
           type="button"
@@ -94,22 +87,7 @@ export function Controls({
           {showGhostHint ? 'HINT: ON' : 'HINT'}
         </button>
 
-        <button
-          type="button"
-          className={`btn-game ${showNumbers ? 'btn-gold-action' : 'btn-dark'}`}
-          onClick={onToggleNumbers}
-        >
-          {showNumbers ? 'NUMBERS: ON' : 'NUMBERS'}
-        </button>
 
-        <button
-          type="button"
-          className="btn-game btn-dark auto-solve-btn"
-          onClick={onAutoSolve}
-          disabled={isSolving}
-        >
-          {isSolving ? 'SOLVING...' : 'AUTO SOLVE'}
-        </button>
       </div>
     </div>
   );
