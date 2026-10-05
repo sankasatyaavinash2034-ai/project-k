@@ -1,6 +1,14 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
+import dns from 'dns';
+
+// Configure fallback DNS servers (Google & Cloudflare) for reliable MongoDB Atlas SRV resolution
+try {
+  dns.setServers(['8.8.8.8', '1.1.1.1', '8.8.4.4']);
+} catch (e) {
+  // Gracefully fallback to OS default DNS if prohibited
+}
 
 // Load environment variables from both root and server/.env
 dotenv.config();
@@ -14,10 +22,8 @@ export const connectDB = async () => {
 
     mongoose.set('bufferCommands', false);
 
-    // Force IPv4 lookup for Windows DNS SRV compatibility
     const conn = await mongoose.connect(mongoUri, {
-      serverSelectionTimeoutMS: 5000,
-      family: 4,
+      serverSelectionTimeoutMS: 8000,
     });
 
     global.isMongoConnected = true;

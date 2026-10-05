@@ -1,10 +1,9 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { auth, googleProvider } from '../config/firebase';
 import { signInWithPopup, signOut as firebaseSignOut } from 'firebase/auth';
+import { API_BASE_URL, apiFetch, setStoredToken } from '../services/api';
 
 const AuthContext = createContext(null);
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -17,12 +16,8 @@ export function AuthProvider({ children }) {
   const checkAuthStatus = useCallback(async () => {
     try {
       setLoading(true);
-      const res = await fetch(`${API_BASE_URL}/auth/me`, {
+      const res = await apiFetch(`${API_BASE_URL}/auth/me`, {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include', // include HTTP-only session cookie
       });
 
       if (res.ok) {
@@ -61,12 +56,8 @@ export function AuthProvider({ children }) {
       const idToken = await firebaseUser.getIdToken();
 
       // Post Firebase verified identity to Backend Server
-      const res = await fetch(`${API_BASE_URL}/auth/google`, {
+      const res = await apiFetch(`${API_BASE_URL}/auth/google`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
         body: JSON.stringify({
           firebaseToken: idToken,
           googleId: firebaseUser.uid,
@@ -79,6 +70,10 @@ export function AuthProvider({ children }) {
       const data = await res.json();
       if (!res.ok || !data.success) {
         throw new Error(data.message || 'Backend Firebase authentication failed.');
+      }
+
+      if (data.token) {
+        setStoredToken(data.token);
       }
 
       setUser(data.user);
@@ -107,18 +102,18 @@ export function AuthProvider({ children }) {
         avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
       };
 
-      const res = await fetch(`${API_BASE_URL}/auth/google`, {
+      const res = await apiFetch(`${API_BASE_URL}/auth/google`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
         body: JSON.stringify({ devUser }),
       });
 
       const data = await res.json();
       if (!res.ok || !data.success) {
         throw new Error(data.message || 'Dev sign-in failed.');
+      }
+
+      if (data.token) {
+        setStoredToken(data.token);
       }
 
       setUser(data.user);
@@ -139,12 +134,8 @@ export function AuthProvider({ children }) {
       setLoading(true);
       setAuthError(null);
 
-      const res = await fetch(`${API_BASE_URL}/users/profile`, {
+      const res = await apiFetch(`${API_BASE_URL}/users/profile`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
         body: JSON.stringify(profileData),
       });
 
@@ -170,13 +161,13 @@ export function AuthProvider({ children }) {
     try {
       setLoading(true);
       await firebaseSignOut(auth).catch(() => {});
-      await fetch(`${API_BASE_URL}/auth/logout`, {
+      await apiFetch(`${API_BASE_URL}/auth/logout`, {
         method: 'POST',
-        credentials: 'include',
       });
     } catch (err) {
       console.warn('[Logout Error]:', err.message);
     } finally {
+      setStoredToken(null);
       setUser(null);
       setLoading(false);
     }

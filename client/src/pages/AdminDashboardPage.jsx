@@ -46,7 +46,7 @@ import {
   Settings,
 } from 'lucide-react';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
+import { API_BASE_URL, apiFetch } from '../services/api';
 
 export function AdminDashboardPage() {
   const { user } = useAuth();
@@ -174,15 +174,15 @@ export function AdminDashboardPage() {
       setErrorMsg('');
 
       const [statsRes, usersRes, teamsRes, puzzlesRes, roundsRes, lbRes, auditRes, whitelistRes, faqsRes] = await Promise.all([
-        fetch(`${API_BASE_URL}/admin/dashboard-stats`, { credentials: 'include' }),
-        fetch(`${API_BASE_URL}/admin/users`, { credentials: 'include' }),
-        fetch(`${API_BASE_URL}/admin/teams-mgmt/teams`, { credentials: 'include' }),
-        fetch(`${API_BASE_URL}/admin/mgmt/puzzles`, { credentials: 'include' }),
-        fetch(`${API_BASE_URL}/admin/mgmt/rounds`, { credentials: 'include' }),
-        fetch(`${API_BASE_URL}/admin/mgmt/leaderboard/status`, { credentials: 'include' }),
-        fetch(`${API_BASE_URL}/admin/mgmt/audit-logs`, { credentials: 'include' }),
-        fetch(`${API_BASE_URL}/admin/mgmt/whitelist`, { credentials: 'include' }),
-        fetch(`${API_BASE_URL}/help`),
+        apiFetch(`${API_BASE_URL}/admin/dashboard-stats`),
+        apiFetch(`${API_BASE_URL}/admin/users`),
+        apiFetch(`${API_BASE_URL}/admin/teams-mgmt/teams`),
+        apiFetch(`${API_BASE_URL}/admin/mgmt/puzzles`),
+        apiFetch(`${API_BASE_URL}/admin/mgmt/rounds`),
+        apiFetch(`${API_BASE_URL}/admin/mgmt/leaderboard/status`),
+        apiFetch(`${API_BASE_URL}/admin/mgmt/audit-logs`),
+        apiFetch(`${API_BASE_URL}/admin/mgmt/whitelist`),
+        apiFetch(`${API_BASE_URL}/help`),
       ]);
 
       if (statsRes.ok) setStats((await statsRes.json()).stats);

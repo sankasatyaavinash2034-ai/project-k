@@ -1,4 +1,5 @@
 import { io } from 'socket.io-client';
+import { getStoredToken } from './api';
 
 const SOCKET_URL = import.meta.env.VITE_API_BASE_URL
   ? import.meta.env.VITE_API_BASE_URL.replace('/api/v1', '')
@@ -7,10 +8,11 @@ const SOCKET_URL = import.meta.env.VITE_API_BASE_URL
 let socket = null;
 
 export const getSocket = (token = null) => {
+  const authToken = token || getStoredToken();
   if (!socket) {
     socket = io(SOCKET_URL, {
       withCredentials: true,
-      auth: { token },
+      auth: { token: authToken },
       autoConnect: true,
       reconnection: true,
       reconnectionAttempts: 10,

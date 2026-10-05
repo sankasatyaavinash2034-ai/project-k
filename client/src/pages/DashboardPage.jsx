@@ -12,7 +12,7 @@ import {
   X,
 } from 'lucide-react';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
+import { API_BASE_URL, apiFetch } from '../services/api';
 
 export function DashboardPage() {
   const { user } = useAuth();
@@ -48,8 +48,8 @@ export function DashboardPage() {
       setApiError(null);
 
       const [roundsRes, statsRes] = await Promise.all([
-        fetch(`${API_BASE_URL}/rounds/dashboard`, { credentials: 'include' }),
-        fetch(`${API_BASE_URL}/users/stats`, { credentials: 'include' }),
+        apiFetch(`${API_BASE_URL}/rounds/dashboard`),
+        apiFetch(`${API_BASE_URL}/users/stats`),
       ]);
 
       const roundsJson = await roundsRes.json();
@@ -83,10 +83,8 @@ export function DashboardPage() {
   const handleEnterRound = async (roundNumber) => {
     try {
       setEnteringRound(roundNumber);
-      const res = await fetch(`${API_BASE_URL}/rounds/${roundNumber}/enter`, {
+      const res = await apiFetch(`${API_BASE_URL}/rounds/${roundNumber}/enter`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
       });
       const data = await res.json();
 
