@@ -24,7 +24,47 @@
       "updatedAt": "2026-10-05T17:58:00.800Z"
     }
   ],
-  "teams": [],
+  "teams": [
+    {
+      "_id": "mem_t_1791228194146_oy2gn",
+      "name": "Test Squad 1791228194145",
+      "code": "ARH-9999",
+      "leaderId": "test_l_1",
+      "memberIds": [
+        "test_l_1"
+      ],
+      "maxSize": 3,
+      "minSizeRequired": 2,
+      "qualifications": [
+        {
+          "roundNumber": 1,
+          "status": "QUALIFIED",
+          "score": 0,
+          "qualifiedAt": "2026-10-05T19:23:14.146Z"
+        },
+        {
+          "roundNumber": 2,
+          "status": "PENDING",
+          "score": 0
+        },
+        {
+          "roundNumber": 3,
+          "status": "PENDING",
+          "score": 0
+        },
+        {
+          "roundNumber": 4,
+          "status": "PENDING",
+          "score": 0
+        }
+      ],
+      "allowAdminBypass": false,
+      "isDisqualified": false,
+      "disqualificationReason": "",
+      "createdAt": "2026-10-05T19:23:14.146Z",
+      "updatedAt": "2026-10-05T19:23:14.146Z"
+    }
+  ],
   "rounds": [
     {
       "_id": "mem_r1",
@@ -139,8 +179,8 @@
       "displayOrder": 1,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.144Z",
+      "updatedAt": "2026-10-05T19:23:14.144Z"
     },
     {
       "_id": "mem_p2",
@@ -213,8 +253,8 @@
       "displayOrder": 2,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.144Z",
+      "updatedAt": "2026-10-05T19:23:14.144Z"
     },
     {
       "_id": "mem_p3",
@@ -287,8 +327,8 @@
       "displayOrder": 3,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.144Z",
+      "updatedAt": "2026-10-05T19:23:14.144Z"
     },
     {
       "_id": "mem_p4",
@@ -361,8 +401,8 @@
       "displayOrder": 4,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.145Z",
+      "updatedAt": "2026-10-05T19:23:14.145Z"
     },
     {
       "_id": "mem_p5",
@@ -435,8 +475,8 @@
       "displayOrder": 5,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.145Z",
+      "updatedAt": "2026-10-05T19:23:14.145Z"
     },
     {
       "_id": "mem_p6",
@@ -509,8 +549,8 @@
       "displayOrder": 6,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.145Z",
+      "updatedAt": "2026-10-05T19:23:14.145Z"
     },
     {
       "_id": "mem_p7",
@@ -583,8 +623,8 @@
       "displayOrder": 7,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.145Z",
+      "updatedAt": "2026-10-05T19:23:14.145Z"
     },
     {
       "_id": "mem_p8",
@@ -657,8 +697,8 @@
       "displayOrder": 8,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.145Z",
+      "updatedAt": "2026-10-05T19:23:14.145Z"
     },
     {
       "_id": "mem_p9",
@@ -731,8 +771,8 @@
       "displayOrder": 9,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.145Z",
+      "updatedAt": "2026-10-05T19:23:14.145Z"
     },
     {
       "_id": "mem_p10",
@@ -805,8 +845,8 @@
       "displayOrder": 10,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.145Z",
+      "updatedAt": "2026-10-05T19:23:14.145Z"
     },
     {
       "_id": "mem_p11",
@@ -879,8 +919,8 @@
       "displayOrder": 11,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.145Z",
+      "updatedAt": "2026-10-05T19:23:14.145Z"
     },
     {
       "_id": "mem_p12",
@@ -953,15 +993,15 @@
       "displayOrder": 12,
       "isPublished": true,
       "isLockedForGame": false,
-      "createdAt": "2026-10-05T17:57:05.185Z",
-      "updatedAt": "2026-10-05T17:57:05.185Z"
+      "createdAt": "2026-10-05T19:23:14.145Z",
+      "updatedAt": "2026-10-05T19:23:14.145Z"
     }
   ],
   "leaderboardSetting": {
     "isFrozen": false,
     "isPublished": true,
     "frozenAt": null,
-    "publishedAt": "2026-10-05T17:57:05.185Z",
+    "publishedAt": "2026-10-05T19:23:14.145Z",
     "lastUpdatedBy": "system"
   },
   "auditLogs": [],

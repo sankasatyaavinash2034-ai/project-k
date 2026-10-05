@@ -342,33 +342,50 @@ export const findTeamByName = async (name) => {
 };
 
 export const createTeam = async (teamData, leaderUser) => {
-  if (isDbConnected()) {
-    try {
-      const newTeam = await Team.create(teamData);
-      await User.findByIdAndUpdate(leaderUser._id, {
-        teamId: newTeam._id,
-        teamName: newTeam.name,
-        role: leaderUser.role === 'admin' || leaderUser.role === 'super_admin' ? leaderUser.role : 'team_leader',
-      });
-      return newTeam;
-    } catch {}
-  }
-
-  const newTeam = {
-    _id: `mem_t_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`,
+  const leaderId = leaderUser._id || leaderUser.id;
+  const fullPayload = {
     name: teamData.name,
     code: teamData.code,
-    leaderId: leaderUser._id,
-    memberIds: [leaderUser._id],
-    maxSize: teamData.maxSize || 3,
+    leaderId: leaderId,
+    memberIds: [leaderId],
+    maxSize: parseInt(teamData.maxSize) || 3,
     minSizeRequired: 2,
-    allowAdminBypass: false,
     qualifications: [
       { roundNumber: 1, status: 'QUALIFIED', score: 0, qualifiedAt: new Date() },
       { roundNumber: 2, status: 'PENDING', score: 0 },
       { roundNumber: 3, status: 'PENDING', score: 0 },
       { roundNumber: 4, status: 'PENDING', score: 0 },
     ],
+  };
+
+  if (isDbConnected()) {
+    try {
+      const newTeam = await Team.create(fullPayload);
+      const newRole = leaderUser.role === 'admin' || leaderUser.role === 'super_admin' ? leaderUser.role : 'team_leader';
+      await User.findByIdAndUpdate(leaderId, {
+        teamId: newTeam._id,
+        teamName: newTeam.name,
+        role: newRole,
+      });
+
+      leaderUser.teamId = newTeam._id;
+      leaderUser.teamName = newTeam.name;
+      leaderUser.role = newRole;
+
+      const memTeam = { ...newTeam.toObject(), _id: newTeam._id };
+      memoryStore.teams.push(memTeam);
+      saveDiskBackup();
+
+      return newTeam;
+    } catch (err) {
+      console.error('[createTeam DB Error]:', err.message);
+    }
+  }
+
+  const newTeam = {
+    _id: `mem_t_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`,
+    ...fullPayload,
+    allowAdminBypass: false,
     isDisqualified: false,
     disqualificationReason: '',
     createdAt: new Date(),
