@@ -313,19 +313,33 @@ export const findTeamById = async (id) => {
 };
 
 export const findTeamByCode = async (code) => {
-  const normalizedCode = code.trim().toUpperCase();
+  if (!code || !code.trim()) return null;
+  let cleanInput = code.trim().toUpperCase();
+
+  // If user enters 4-character code without prefix e.g. "9042", auto-format to "ARH-9042"
+  if (!cleanInput.startsWith('ARH-') && cleanInput.length === 4) {
+    cleanInput = `ARH-${cleanInput}`;
+  }
+
+  const escapeRegex = cleanInput.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+  const codeRegex = new RegExp(`^${escapeRegex}$`, 'i');
+
   if (isDbConnected()) {
     try {
-      const t = await Team.findOne({ code: normalizedCode }).populate('leaderId memberIds', 'name email avatar role profile');
+      const t = await Team.findOne({
+        $or: [{ code: codeRegex }, { code: new RegExp(cleanInput.replace('ARH-', ''), 'i') }],
+      }).populate('leaderId memberIds', 'name email avatar role profile');
       if (t) return t;
     } catch {}
   }
 
-  const t = memoryStore.teams.find((tm) => tm.code === normalizedCode);
+  const t = memoryStore.teams.find(
+    (tm) => tm.code && (tm.code.toUpperCase() === cleanInput || tm.code.toUpperCase().endsWith(cleanInput.replace('ARH-', '')))
+  );
   if (!t) return null;
 
   const leaderObj = memoryStore.users.find((u) => String(u._id) === String(t.leaderId)) || { _id: t.leaderId, name: 'Leader' };
-  const membersObj = t.memberIds.map((mid) => memoryStore.users.find((u) => String(u._id) === String(mid)) || { _id: mid, name: 'Member' });
+  const membersObj = (t.memberIds || []).map((mid) => memoryStore.users.find((u) => String(u._id) === String(mid)) || { _id: mid, name: 'Member' });
   return { ...t, leaderId: leaderObj, memberIds: membersObj };
 };
 
