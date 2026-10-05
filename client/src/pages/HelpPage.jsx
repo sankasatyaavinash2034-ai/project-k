@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AppShell } from '../components/AppShell';
 import { HelpCircle, ChevronDown, ChevronUp, Mail, MessageCircle, RefreshCw } from 'lucide-react';
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
+import { API_BASE_URL, apiFetch } from '../services/api';
 
 const FALLBACK_FAQS = [
   {
@@ -108,7 +107,7 @@ export function HelpPage() {
   const fetchFAQs = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE_URL}/help`);
+      const res = await apiFetch(`${API_BASE_URL}/help`);
       const data = await res.json();
       if (data.status === 'success' && data.data?.faqs?.length) {
         setFaqs(data.data.faqs);

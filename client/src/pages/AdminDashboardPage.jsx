@@ -291,10 +291,8 @@ export function AdminDashboardPage() {
   // ================= USER DIRECTORY HANDLERS =================
   const handleRoleChange = async (targetUserId, newRole) => {
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/users/${targetUserId}/role`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/users/${targetUserId}/role`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ role: newRole }),
       });
       const data = await res.json();
@@ -321,10 +319,8 @@ export function AdminDashboardPage() {
     if (!editingTeam) return;
 
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/teams-mgmt/teams/${editingTeam._id}`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/teams-mgmt/teams/${editingTeam._id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({
           name: editName,
           maxSize: parseInt(editMaxSize),
@@ -347,9 +343,8 @@ export function AdminDashboardPage() {
     if (!window.confirm(`Are you sure you want to reset the active game session for '${teamName}'? This clears their current progress.`)) return;
 
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/teams/${teamId}/reset-session`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/teams/${teamId}/reset-session`, {
         method: 'POST',
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.message);
@@ -366,10 +361,8 @@ export function AdminDashboardPage() {
     if (!adjustScoreModal) return;
 
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/teams/${adjustScoreModal.teamId}/adjust-score`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/teams/${adjustScoreModal.teamId}/adjust-score`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({
           roundNumber: adjustScoreModal.roundNumber || 1,
           scoreDelta,
@@ -433,10 +426,8 @@ export function AdminDashboardPage() {
 
       const method = editingPuzzle ? 'PUT' : 'POST';
 
-      const res = await fetch(url, {
+      const res = await apiFetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify(puzzleForm),
       });
 
@@ -455,9 +446,8 @@ export function AdminDashboardPage() {
     if (!window.confirm(`Delete puzzle '${title}'? This action cannot be undone.`)) return;
 
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/puzzles/${puzzleId}`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/puzzles/${puzzleId}`, {
         method: 'DELETE',
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.message);
@@ -471,10 +461,8 @@ export function AdminDashboardPage() {
 
   const handleTogglePuzzlePublish = async (puzzleId, currentPublished, title) => {
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/puzzles/${puzzleId}/publish`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/puzzles/${puzzleId}/publish`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ isPublished: !currentPublished }),
       });
       const data = await res.json();
@@ -502,10 +490,8 @@ export function AdminDashboardPage() {
     const orders = reordered.map((p, idx) => ({ id: p._id, displayOrder: idx + 1 }));
 
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/puzzles/reorder`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/puzzles/reorder`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ orders }),
       });
       const data = await res.json();
@@ -545,10 +531,8 @@ export function AdminDashboardPage() {
     const orders = reordered.map((p, idx) => ({ id: p._id, displayOrder: idx + 1 }));
 
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/puzzles/reorder`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/puzzles/reorder`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ orders }),
       });
       const data = await res.json();
@@ -564,10 +548,8 @@ export function AdminDashboardPage() {
   // ================= ROUND MANAGEMENT HANDLERS =================
   const handleRoundStatusChange = async (roundNumber, status) => {
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/rounds/${roundNumber}/status`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/rounds/${roundNumber}/status`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ status }),
       });
       const data = await res.json();
@@ -594,10 +576,8 @@ export function AdminDashboardPage() {
     if (!editingRound) return;
 
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/rounds/${editingRound.roundNumber}/config`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/rounds/${editingRound.roundNumber}/config`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({
           title: roundTitle,
           description: roundDesc,
@@ -620,10 +600,8 @@ export function AdminDashboardPage() {
   const handleCreateRound = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/rounds`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/rounds`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify(newRoundForm),
       });
       const data = await res.json();
@@ -651,9 +629,8 @@ export function AdminDashboardPage() {
       return;
     }
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/rounds/${roundNumber}`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/rounds/${roundNumber}`, {
         method: 'DELETE',
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.message);
@@ -671,10 +648,8 @@ export function AdminDashboardPage() {
     if (!newAdminEmail.trim()) return;
     try {
       setAddingAdminEmail(true);
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/whitelist`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/whitelist`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ email: newAdminEmail.trim() }),
       });
       const data = await res.json();
@@ -693,9 +668,8 @@ export function AdminDashboardPage() {
   const handleRemoveWhitelist = async (emailToRemove) => {
     if (!window.confirm(`Remove ${emailToRemove} from administrator whitelist?`)) return;
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/whitelist/${encodeURIComponent(emailToRemove)}`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/whitelist/${encodeURIComponent(emailToRemove)}`, {
         method: 'DELETE',
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.message);
@@ -732,10 +706,8 @@ export function AdminDashboardPage() {
         : `${API_BASE_URL}/admin/mgmt/help`;
       const method = editingFaq ? 'PUT' : 'POST';
 
-      const res = await fetch(url, {
+      const res = await apiFetch(url, {
         method,
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify(faqForm),
       });
       const data = await res.json();
@@ -752,9 +724,8 @@ export function AdminDashboardPage() {
   const handleDeleteFaq = async (id, question) => {
     if (!window.confirm(`Delete FAQ: "${question}"?`)) return;
     try {
-      const res = await fetch(`${API_BASE_URL}/admin/mgmt/help/${id}`, {
+      const res = await apiFetch(`${API_BASE_URL}/admin/mgmt/help/${id}`, {
         method: 'DELETE',
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.message);
@@ -770,10 +741,8 @@ export function AdminDashboardPage() {
   const handleComputePreview = async () => {
     try {
       setLoadingRankingPreview(true);
-      const res = await fetch(`${API_BASE_URL}/leaderboard/admin/preview`, {
+      const res = await apiFetch(`${API_BASE_URL}/leaderboard/admin/preview`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({
           roundNumber: selectedRankingRound,
           qualifyingCount: qualifyingLimit,
@@ -794,10 +763,8 @@ export function AdminDashboardPage() {
 
   const handleFreezeRoundLeaderboard = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/leaderboard/admin/freeze`, {
+      const res = await apiFetch(`${API_BASE_URL}/leaderboard/admin/freeze`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({
           roundNumber: selectedRankingRound,
           qualifyingCount: qualifyingLimit,
@@ -819,10 +786,8 @@ export function AdminDashboardPage() {
 
   const handleUnfreezeRoundLeaderboard = async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/leaderboard/admin/unfreeze`, {
+      const res = await apiFetch(`${API_BASE_URL}/leaderboard/admin/unfreeze`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ roundNumber: selectedRankingRound }),
       });
       const data = await res.json();
@@ -838,10 +803,8 @@ export function AdminDashboardPage() {
 
   const handlePublishRoundLeaderboard = async (isPub) => {
     try {
-      const res = await fetch(`${API_BASE_URL}/leaderboard/admin/publish`, {
+      const res = await apiFetch(`${API_BASE_URL}/leaderboard/admin/publish`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ roundNumber: selectedRankingRound, isPublished: isPub }),
       });
       const data = await res.json();
@@ -859,10 +822,8 @@ export function AdminDashboardPage() {
     if (!manualUnlockModal) return;
 
     try {
-      const res = await fetch(`${API_BASE_URL}/leaderboard/admin/manual-unlock`, {
+      const res = await apiFetch(`${API_BASE_URL}/leaderboard/admin/manual-unlock`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({
           teamId: manualUnlockModal.teamId,
           roundNumber: manualUnlockModal.roundNumber,
