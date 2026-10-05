@@ -17,7 +17,7 @@ const onlineUsers = new Map(); // socketId -> { userId, email, name, role, teamI
 export const initSocket = (httpServer, clientOrigin) => {
   io = new Server(httpServer, {
     cors: {
-      origin: [clientOrigin, 'http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:5174', 'http://127.0.0.1:5174'],
+      origin: (origin, callback) => callback(null, true),
       credentials: true,
     },
     pingInterval: 10000,

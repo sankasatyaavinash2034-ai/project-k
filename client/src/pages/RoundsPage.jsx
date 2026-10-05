@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppShell } from '../components/AppShell';
 import { Lock, Loader2, ShieldAlert, Trophy, Clock } from 'lucide-react';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
+import { API_BASE_URL, apiFetch } from '../services/api';
 
 const STATUS_STYLES = {
   OPEN:        { label: 'OPEN',        cls: 'ieee-open-status' },
@@ -26,7 +26,7 @@ export function RoundsPage() {
     try {
       setLoading(true);
       setApiError(null);
-      const res = await fetch(`${API_BASE_URL}/rounds/dashboard`, { credentials: 'include' });
+      const res = await apiFetch(`${API_BASE_URL}/rounds/dashboard`);
       const data = await res.json();
       if (res.ok && data.success) setRounds(data.rounds || []);
       else throw new Error(data.message || 'Failed to load rounds');
@@ -42,10 +42,8 @@ export function RoundsPage() {
   const handleEnter = async (roundNumber) => {
     try {
       setEnteringRound(roundNumber);
-      const res = await fetch(`${API_BASE_URL}/rounds/${roundNumber}/enter`, {
+      const res = await apiFetch(`${API_BASE_URL}/rounds/${roundNumber}/enter`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
       });
       const data = await res.json();
 

@@ -18,7 +18,7 @@ import {
   RefreshCw,
 } from 'lucide-react';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
+import { API_BASE_URL, apiFetch } from '../services/api';
 
 export function PuzzleGamePage() {
   const { user } = useAuth();
@@ -40,7 +40,7 @@ export function PuzzleGamePage() {
     try {
       setLoadingState(true);
       setErrorMsg('');
-      const res = await fetch(`${API_BASE_URL}/game/r1/state`, { credentials: 'include' });
+      const res = await apiFetch(`${API_BASE_URL}/game/r1/state`);
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.message || 'Failed to fetch game state.');
       setGameState(data);
@@ -71,10 +71,8 @@ export function PuzzleGamePage() {
     try {
       setStarting(true);
       setErrorMsg('');
-      const res = await fetch(`${API_BASE_URL}/game/r1/start`, {
+      const res = await apiFetch(`${API_BASE_URL}/game/r1/start`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.message || 'Failed to start game session.');
@@ -93,10 +91,8 @@ export function PuzzleGamePage() {
       setSubmitting(true);
       setFeedbackMsg(null);
       setErrorMsg('');
-      const res = await fetch(`${API_BASE_URL}/game/r1/submit`, {
+      const res = await apiFetch(`${API_BASE_URL}/game/r1/submit`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ answer: answerInput.trim(), timeSpentSeconds: elapsedSeconds }),
       });
       const data = await res.json();

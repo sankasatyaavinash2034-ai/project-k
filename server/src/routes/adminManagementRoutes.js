@@ -20,6 +20,7 @@ import {
   setLeaderboardFreeze,
   setLeaderboardPublish,
   logAdminAudit,
+  getAuditLogs,
   findTeamById,
   getAdminWhitelist,
   addAdminWhitelistEmail,
@@ -524,6 +525,20 @@ router.post('/leaderboard/publish', async (req, res) => {
     });
   } catch (error) {
     return res.status(500).json({ success: false, message: 'Failed to update leaderboard publish state: ' + error.message });
+  }
+});
+
+/**
+ * @route   GET /api/v1/admin/mgmt/audit-logs
+ * @desc    Fetch administrative audit logs
+ * @access  Admin Only
+ */
+router.get('/audit-logs', async (req, res) => {
+  try {
+    const logs = await getAuditLogs();
+    return res.status(200).json({ success: true, count: logs.length, logs });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: 'Failed to fetch audit logs: ' + error.message });
   }
 });
 
