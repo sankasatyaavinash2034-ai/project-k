@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "cd server && npm install",
-    "start": "node server/src/index.js",
+    "build": "npm install --prefix server",
+    "start": "npm start --prefix server",
     "server": "node server/src/index.js"
   },
   "dependencies": {
