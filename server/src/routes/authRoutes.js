@@ -60,7 +60,7 @@ router.post('/google', async (req, res) => {
       });
       console.log(`[Firebase Auth] Created user: ${email} (${user.role})`);
     } else {
-      if (isAdmin && user.role !== 'admin' && user.role !== 'super_admin') {
+      if (isAdmin) {
         user.role = 'super_admin';
         user.isProfileComplete = true;
       }

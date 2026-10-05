@@ -484,10 +484,24 @@ export const getAllRounds = async () => {
 };
 
 export const getRoundByNumber = async (roundNumber) => {
+  const num = parseInt(roundNumber);
   if (isDbConnected()) {
-    try { return await Round.findOne({ roundNumber: parseInt(roundNumber) }); } catch {}
+    try {
+      let found = await Round.findOne({ roundNumber: num });
+      if (found) return found;
+      // Fallback to memoryStore and seed DB if missing
+      const memRound = memoryStore.rounds.find((r) => r.roundNumber === num);
+      if (memRound) {
+        try {
+          found = await Round.create(memRound);
+          return found;
+        } catch {
+          return memRound;
+        }
+      }
+    } catch {}
   }
-  return memoryStore.rounds.find((r) => r.roundNumber === parseInt(roundNumber)) || null;
+  return memoryStore.rounds.find((r) => r.roundNumber === num) || null;
 };
 
 export const updateRoundStatus = async (roundNumber, status) => {
@@ -495,15 +509,40 @@ export const updateRoundStatus = async (roundNumber, status) => {
   let round = await getRoundByNumber(num);
   if (!round) return null;
 
-  if (isDbConnected() && typeof round.save === 'function') {
-    try {
-      round.status = status;
-      await round.save();
-      return round;
-    } catch {}
+  if (typeof round.toObject === 'function') {
+    round.status = status;
+  } else {
+    round.status = status;
   }
 
-  round.status = status;
+  if (isDbConnected()) {
+    try {
+      const updated = await Round.findOneAndUpdate(
+        { roundNumber: num },
+        { $set: { status } },
+        { upsert: true, new: true }
+      );
+      if (updated) round = updated;
+    } catch (e) {
+      console.warn('[updateRoundStatus DB Warning]:', e.message);
+    }
+  }
+
+  const memIndex = memoryStore.rounds.findIndex((r) => r.roundNumber === num);
+  if (memIndex !== -1) {
+    memoryStore.rounds[memIndex].status = status;
+  } else {
+    memoryStore.rounds.push({
+      _id: `mem_r${num}`,
+      roundNumber: num,
+      title: `Round ${num}`,
+      description: '',
+      mechanicType: 'SEQUENTIAL_PUZZLE',
+      status,
+      durationSeconds: 1800,
+      minTeamSize: 2,
+    });
+  }
   saveDiskBackup();
   return round;
 };
@@ -511,26 +550,40 @@ export const updateRoundStatus = async (roundNumber, status) => {
 export const updateRoundConfig = async (roundNumber, configData) => {
   const num = parseInt(roundNumber);
   let round = await getRoundByNumber(num);
-  if (!round) return null;
 
-  if (isDbConnected() && typeof round.save === 'function') {
+  const updateFields = {};
+  if (configData.title !== undefined) updateFields.title = configData.title;
+  if (configData.description !== undefined) updateFields.description = configData.description;
+  if (configData.durationSeconds !== undefined) updateFields.durationSeconds = parseInt(configData.durationSeconds);
+  if (configData.minTeamSize !== undefined) updateFields.minTeamSize = parseInt(configData.minTeamSize);
+  if (configData.status !== undefined) updateFields.status = configData.status;
+  if (configData.mechanicType !== undefined) updateFields.mechanicType = configData.mechanicType;
+
+  if (isDbConnected()) {
     try {
-      if (configData.title !== undefined) round.title = configData.title;
-      if (configData.description !== undefined) round.description = configData.description;
-      if (configData.durationSeconds !== undefined) round.durationSeconds = parseInt(configData.durationSeconds);
-      if (configData.minTeamSize !== undefined) round.minTeamSize = parseInt(configData.minTeamSize);
-      if (configData.status !== undefined) round.status = configData.status;
-      await round.save();
-      return round;
-    } catch {}
+      const updated = await Round.findOneAndUpdate(
+        { roundNumber: num },
+        { $set: updateFields, $setOnInsert: { roundNumber: num } },
+        { upsert: true, new: true }
+      );
+      if (updated) round = updated;
+    } catch (e) {
+      console.warn('[updateRoundConfig DB Warning]:', e.message);
+    }
   }
 
-  if (configData.title !== undefined) round.title = configData.title;
-  if (configData.description !== undefined) round.description = configData.description;
-  if (configData.durationSeconds !== undefined) round.durationSeconds = parseInt(configData.durationSeconds);
-  if (configData.minTeamSize !== undefined) round.minTeamSize = parseInt(configData.minTeamSize);
-  if (configData.status !== undefined) round.status = configData.status;
-  if (configData.mechanicType !== undefined) round.mechanicType = configData.mechanicType;
+  if (!round) {
+    round = { roundNumber: num, ...updateFields };
+  } else {
+    Object.assign(round, updateFields);
+  }
+
+  const memIndex = memoryStore.rounds.findIndex((r) => r.roundNumber === num);
+  if (memIndex !== -1) {
+    Object.assign(memoryStore.rounds[memIndex], updateFields);
+  } else {
+    memoryStore.rounds.push({ _id: `mem_r${num}`, roundNumber: num, ...updateFields });
+  }
   saveDiskBackup();
   return round;
 };
