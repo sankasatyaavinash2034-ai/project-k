@@ -3,9 +3,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "npm --prefix server install",
-    "start": "npm --prefix server start",
-    "dev:server": "npm --prefix server run dev",
-    "dev:client": "npm --prefix client run dev"
+    "build": "cd server && npm install",
+    "start": "node server/src/index.js",
+    "server": "node server/src/index.js"
+  },
+  "dependencies": {
+    "cloudinary": "^2.11.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.10.1",
+    "socket.io": "^4.8.4"
   }
 }
