@@ -1,0 +1,1007 @@
+{
+  "users": [
+    {
+      "_id": "mem_u_1791223080800_0m6zf",
+      "googleId": "EXEldsW59DQ1EJxmx2dSA3qJBPn1",
+      "email": "sankasatyaavinash2034@gmail.com",
+      "name": "Satya Avinash Sanka",
+      "avatar": "https://lh3.googleusercontent.com/a/ACg8ocLZKstmWWdAt3E7laflErh563CaP4EBnACNfQPsjOXHbZFuT5c=s96-c",
+      "role": "super_admin",
+      "isProfileComplete": true,
+      "profile": {
+        "fullName": "Satya Avinash Sanka"
+      },
+      "teamId": null,
+      "teamName": "",
+      "stats": {
+        "totalScore": 0,
+        "gamesAttempted": 0,
+        "gamesCompleted": 0,
+        "currentRound": 1,
+        "eventStatus": "REGISTERED"
+      },
+      "createdAt": "2026-10-05T17:58:00.800Z",
+      "updatedAt": "2026-10-05T17:58:00.800Z"
+    }
+  ],
+  "teams": [],
+  "rounds": [
+    {
+      "_id": "mem_r1",
+      "roundNumber": 1,
+      "title": "Round 1: Avengers Tile Assemble",
+      "description": "Sequential Image Puzzle challenge with dynamic grid slicing, piece tray drag/swap mechanics, and time-attack scoring.",
+      "mechanicType": "SEQUENTIAL_PUZZLE",
+      "status": "AVAILABLE",
+      "durationSeconds": 1800,
+      "minTeamSize": 2
+    },
+    {
+      "_id": "mem_r2",
+      "roundNumber": 2,
+      "title": "Round 2: Quantum Mind Quiz",
+      "description": "Interactive speed quiz testing algorithmic logic, Marvel trivia, and real-time decision making.",
+      "mechanicType": "MCQ_QUIZ",
+      "status": "LOCKED",
+      "durationSeconds": 1200,
+      "minTeamSize": 2
+    },
+    {
+      "_id": "mem_r3",
+      "roundNumber": 3,
+      "title": "Round 3: Vibranium Media Showcase",
+      "description": "Creative project presentation and video/image asset submission for expert jury evaluation.",
+      "mechanicType": "MEDIA_SUBMISSION",
+      "status": "LOCKED",
+      "durationSeconds": 3600,
+      "minTeamSize": 2
+    },
+    {
+      "_id": "mem_r4",
+      "roundNumber": 4,
+      "title": "Round 4: Infinity Speed Run",
+      "description": "Grand final speed programming and multi-tile puzzle showdown for top qualified teams.",
+      "mechanicType": "CODE_CHALLENGE",
+      "status": "LOCKED",
+      "durationSeconds": 2400,
+      "minTeamSize": 2
+    }
+  ],
+  "puzzles": [
+    {
+      "_id": "mem_p1",
+      "roundNumber": 1,
+      "title": "Stark Tower Arc Reactor Blueprint",
+      "description": "Reassemble the arc reactor schematic fragments into their precise geometric layout.",
+      "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "ARC-REACTOR-2026",
+      "points": 100,
+      "timeLimitSeconds": 300,
+      "hint": "Look for the glowing central energy core in tile 5.",
+      "displayOrder": 1,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p2",
+      "roundNumber": 1,
+      "title": "Quantum Realm Sub-Atomic Matrix",
+      "description": "Solve the sub-atomic matrix alignment to unlock the quantum portal entry keys.",
+      "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "QUANTUM-88-ALPHA",
+      "points": 120,
+      "timeLimitSeconds": 360,
+      "hint": "Align blue flux lines along the horizontal axis first.",
+      "displayOrder": 2,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p3",
+      "roundNumber": 1,
+      "title": "Wakandan Vibranium Sonic Shield",
+      "description": "Connect the sonic stabilization nodes to restore shield energy integrity.",
+      "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "VIBRANIUM-KEY-99",
+      "points": 140,
+      "timeLimitSeconds": 400,
+      "hint": "Check the peripheral purple nodes.",
+      "displayOrder": 3,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p4",
+      "roundNumber": 1,
+      "title": "Mjolnir Asgardian Lightning Pattern",
+      "description": "Align the electrical discharge vectors to harness Thor hammer power.",
+      "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "MJOLNIR-THUNDER-77",
+      "points": 150,
+      "timeLimitSeconds": 420,
+      "hint": "Follow the central blue lightning arc.",
+      "displayOrder": 4,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p5",
+      "roundNumber": 1,
+      "title": "Eye of Agamotto Temporal Grid",
+      "description": "Reconstruct the mystic rune ring alignment to stabilize local timeline flux.",
+      "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "AGAMOTTO-TIME-GEM",
+      "points": 160,
+      "timeLimitSeconds": 450,
+      "hint": "Green temporal rings match outer corners.",
+      "displayOrder": 5,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p6",
+      "roundNumber": 1,
+      "title": "S.H.I.E.L.D. Helicarrier Flight Matrix",
+      "description": "Assemble navigation system coordinates for carrier takeoff alignment.",
+      "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "HELICARRIER-ALT-40",
+      "points": 180,
+      "timeLimitSeconds": 480,
+      "hint": "Rotor turbines are located on the left and right wings.",
+      "displayOrder": 6,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p7",
+      "roundNumber": 1,
+      "title": "Nano-Tech Iron Mark-85 Armor",
+      "description": "Calibrate nanite cell density across chest plate and repulsor nodes.",
+      "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "MARK-85-SUIT",
+      "points": 200,
+      "timeLimitSeconds": 500,
+      "hint": "Chest unibeam goes directly in the center tile.",
+      "displayOrder": 7,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p8",
+      "roundNumber": 1,
+      "title": "Web-Shooter Tensile Frequency",
+      "description": "Synthesize high-tensile web formula lattice for maximum structural hold.",
+      "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "SPIDER-WEB-LINE",
+      "points": 220,
+      "timeLimitSeconds": 520,
+      "hint": "Radial spider threads emanate from section 5.",
+      "displayOrder": 8,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p9",
+      "roundNumber": 1,
+      "title": "Bifrost Bifurcated Portal Array",
+      "description": "Synchronize rainbow bridge energy frequency for inter-dimensional transit.",
+      "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1550684848-bac1c5b4e853?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "BIFROST-999-KEY",
+      "points": 240,
+      "timeLimitSeconds": 540,
+      "hint": "Prismatic light spectrum forms a vertical column.",
+      "displayOrder": 9,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p10",
+      "roundNumber": 1,
+      "title": "Tesseract Cosmic Energy Node",
+      "description": "Contain spatial cube energy fluctuations within containment field.",
+      "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "SPACE-STONE-BLUE",
+      "points": 250,
+      "timeLimitSeconds": 560,
+      "hint": "Bright blue cubic edges delineate outer bounds.",
+      "displayOrder": 10,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p11",
+      "roundNumber": 1,
+      "title": "Kree Fleet Navigation Map",
+      "description": "Map interstellar jump point coordinates through Andromeda galaxy cluster.",
+      "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "HALA-NAV-COMMAND",
+      "points": 280,
+      "timeLimitSeconds": 580,
+      "hint": "Star map constellation cluster centers in tile 2.",
+      "displayOrder": 11,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "mem_p12",
+      "roundNumber": 1,
+      "title": "Infinity Gauntlet Snap Sequence",
+      "description": "Position all 6 infinity stones in harmonic order to unleash full cosmic power.",
+      "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800",
+      "gridRows": 3,
+      "gridCols": 3,
+      "processedSections": [
+        {
+          "sectionIndex": 0,
+          "row": 0,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&slice=0&r=0&c=0"
+        },
+        {
+          "sectionIndex": 1,
+          "row": 0,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&slice=1&r=0&c=1"
+        },
+        {
+          "sectionIndex": 2,
+          "row": 0,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&slice=2&r=0&c=2"
+        },
+        {
+          "sectionIndex": 3,
+          "row": 1,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&slice=3&r=1&c=0"
+        },
+        {
+          "sectionIndex": 4,
+          "row": 1,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&slice=4&r=1&c=1"
+        },
+        {
+          "sectionIndex": 5,
+          "row": 1,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&slice=5&r=1&c=2"
+        },
+        {
+          "sectionIndex": 6,
+          "row": 2,
+          "col": 0,
+          "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&slice=6&r=2&c=0"
+        },
+        {
+          "sectionIndex": 7,
+          "row": 2,
+          "col": 1,
+          "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&slice=7&r=2&c=1"
+        },
+        {
+          "sectionIndex": 8,
+          "row": 2,
+          "col": 2,
+          "imageUrl": "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=800&slice=8&r=2&c=2"
+        }
+      ],
+      "solution": "INFINITY-SNAP-2026",
+      "points": 300,
+      "timeLimitSeconds": 600,
+      "hint": "Mind stone rests atop the center knuckle.",
+      "displayOrder": 12,
+      "isPublished": true,
+      "isLockedForGame": false,
+      "createdAt": "2026-10-05T17:57:05.185Z",
+      "updatedAt": "2026-10-05T17:57:05.185Z"
+    }
+  ],
+  "leaderboardSetting": {
+    "isFrozen": false,
+    "isPublished": true,
+    "frozenAt": null,
+    "publishedAt": "2026-10-05T17:57:05.185Z",
+    "lastUpdatedBy": "system"
+  },
+  "auditLogs": [],
+  "gameSessions": [],
+  "adminWhitelist": [
+    "sankasatyaavinash2034@gmail.com",
+    "kartikeyakk2007@gmail.com"
+  ],
+  "faqs": [
+    {
+      "_id": "faq_1",
+      "question": "What is AAROhan 2026?",
+      "answer": "AAROhan 2026 is the premier annual multi-round technical and problem-solving competition organized by the IEEE Student Branch of NIT Durgapur.",
+      "category": "General",
+      "displayOrder": 1,
+      "createdAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "faq_2",
+      "question": "How do team formations and qualifications work?",
+      "answer": "Teams consist of 2–3 members. The top 50 qualifying teams from Round 1 advance to Round 2. All registered members of a qualifying team inherit qualification automatically.",
+      "category": "Teams & Qualification",
+      "displayOrder": 2,
+      "createdAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "faq_3",
+      "question": "Who can submit puzzle answers in Round 1?",
+      "answer": "Only the designated Team Leader can start the team session and submit puzzle answers. All team members can view progress in real-time.",
+      "category": "Game Rules",
+      "displayOrder": 3,
+      "createdAt": "2026-10-05T17:57:05.185Z"
+    },
+    {
+      "_id": "faq_4",
+      "question": "What are the tie-break criteria on the leaderboard?",
+      "answer": "Teams are ranked by: 1. Number of Puzzles Completed (DESC), 2. Total Score (DESC), 3. Total Completion Time (ASC), 4. Final Puzzle Completion Timestamp (ASC).",
+      "category": "Scoring",
+      "displayOrder": 4,
+      "createdAt": "2026-10-05T17:57:05.185Z"
+    }
+  ]
+}
