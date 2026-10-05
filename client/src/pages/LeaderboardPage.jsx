@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { AppShell } from '../components/AppShell';
 import { Trophy, Loader2, ShieldAlert, Medal, CheckCircle2, Lock, Sparkles, HelpCircle, Flame, Clock } from 'lucide-react';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
+import { API_BASE_URL, apiFetch } from '../services/api';
 
 const MEDAL_COLORS = ['#FFD700', '#C0C0C0', '#CD7F32'];
 
@@ -28,7 +28,7 @@ export function LeaderboardPage() {
     try {
       setLoading(true);
       setApiError(null);
-      const res = await fetch(`${API_BASE_URL}/leaderboard?round=${roundNum}`, { credentials: 'include' });
+      const res = await apiFetch(`${API_BASE_URL}/leaderboard?round=${roundNum}`);
       const data = await res.json();
       if (res.ok && data.success) {
         setLeaderboardData(data);

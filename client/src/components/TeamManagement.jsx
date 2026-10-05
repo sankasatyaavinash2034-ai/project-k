@@ -16,7 +16,7 @@ import {
   Layers,
 } from 'lucide-react';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
+import { API_BASE_URL, apiFetch } from '../services/api';
 
 export function TeamManagement({ onTeamUpdated }) {
   const { refreshAuth } = useAuth();
@@ -39,7 +39,7 @@ export function TeamManagement({ onTeamUpdated }) {
     try {
       setLoading(true);
       setErrorMsg('');
-      const res = await fetch(`${API_BASE_URL}/teams/my-team`, { credentials: 'include' });
+      const res = await apiFetch(`${API_BASE_URL}/teams/my-team`);
       const data = await res.json();
       if (res.ok && data.success) {
         setTeam(data.team);
@@ -64,10 +64,8 @@ export function TeamManagement({ onTeamUpdated }) {
 
     try {
       setActionLoading(true);
-      const res = await fetch(`${API_BASE_URL}/teams/create`, {
+      const res = await apiFetch(`${API_BASE_URL}/teams/create`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ name: createName.trim(), maxSize: createMaxSize }),
       });
       const data = await res.json();
@@ -93,7 +91,7 @@ export function TeamManagement({ onTeamUpdated }) {
 
     try {
       setLookingUp(true);
-      const res = await fetch(`${API_BASE_URL}/teams/lookup/${joinCode.trim().toUpperCase()}`, { credentials: 'include' });
+      const res = await apiFetch(`${API_BASE_URL}/teams/lookup/${joinCode.trim().toUpperCase()}`);
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.message || 'Team lookup failed.');
 
@@ -112,10 +110,8 @@ export function TeamManagement({ onTeamUpdated }) {
 
     try {
       setActionLoading(true);
-      const res = await fetch(`${API_BASE_URL}/teams/join`, {
+      const res = await apiFetch(`${API_BASE_URL}/teams/join`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
         body: JSON.stringify({ code: joinCode.trim().toUpperCase() }),
       });
       const data = await res.json();
@@ -140,9 +136,8 @@ export function TeamManagement({ onTeamUpdated }) {
     try {
       setActionLoading(true);
       setErrorMsg('');
-      const res = await fetch(`${API_BASE_URL}/teams/leave`, {
+      const res = await apiFetch(`${API_BASE_URL}/teams/leave`, {
         method: 'POST',
-        credentials: 'include',
       });
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.message || 'Failed to leave team.');
